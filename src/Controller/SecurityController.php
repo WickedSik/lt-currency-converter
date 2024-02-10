@@ -43,7 +43,7 @@ final class SecurityController extends AbstractController
     ): Response {
         // if user is already logged in, don't display the login page again
         if ($user) {
-            return $this->redirectToRoute('app_page_index');
+            return $this->redirectToRoute('homepage');
         }
 
         return $this->render('security/login.html.twig', [

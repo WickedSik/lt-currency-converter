@@ -27,7 +27,7 @@ use Symfony\Component\Security\Http\Attribute\CurrentUser;
 
 class PageController extends AbstractController
 {
-    #[Route('/index', name: 'app_page_index')]
+    #[Route('/', name: 'homepage')]
     public function index(
         #[CurrentUser] User $user,
         Request $request,
@@ -45,7 +45,7 @@ class PageController extends AbstractController
             $currencies = $entityManager->getRepository(CurrencyRate::class)->findBy([
                 'fromCode' => $data['from_code']
             ]);
-            $value = $data['value'];
+            $value = $data['amount'];
 
             foreach($currencies as $currency) {
                 $conversions[] = [
@@ -73,9 +73,7 @@ class PageController extends AbstractController
                 'label' => 'From',
                 'choices' => $fromCodeOptions
             ])
-            ->add('value', MoneyType::class, [
-                'label' => 'Amount'
-            ])
+            ->add('amount', MoneyType::class)
             ->add('convert', SubmitType::class)
             ->getForm();
     }
