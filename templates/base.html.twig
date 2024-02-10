@@ -22,6 +22,20 @@
     </head>
 
     <body id="{% block body_id %}{% endblock %}">
+        {% block header %}{% endblock %}
 
+        <div class="container body-container">
+            {% block body %}
+                <div class="row">
+                    <div id="main" class="col-sm-9">
+                        {{ include('default/_flash_messages.html.twig') }}
+
+                        {% block main %}{% endblock %}
+                    </div>
+                </div>
+            {% endblock %}
+        </div>
+
+        {% block footer %}{% endblock %}
     </body>
 </html>
