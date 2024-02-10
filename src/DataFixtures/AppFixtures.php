@@ -11,16 +11,10 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Comment;
-use App\Entity\Post;
-use App\Entity\Tag;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
-use Symfony\Component\String\AbstractUnicodeString;
-use Symfony\Component\String\Slugger\SluggerInterface;
-use function Symfony\Component\String\u;
 
 final class AppFixtures extends Fixture
 {
@@ -57,10 +51,10 @@ final class AppFixtures extends Fixture
     private function getUserData(): array
     {
         return [
-            // $userData = [$fullname, $username, $password, $email, $roles];
-            ['Jane Doe', 'jane_admin', 'kitten', 'jane_admin@symfony.com', [User::ROLE_ADMIN]],
-            ['Tom Doe', 'tom_admin', 'kitten', 'tom_admin@symfony.com', [User::ROLE_ADMIN]],
-            ['John Doe', 'john_user', 'kitten', 'john_user@symfony.com', [User::ROLE_USER]],
+            // $userData = [$fullName, $username, $password, $email, $roles];
+            ['Jane Doe', 'jane_admin', 'ltcc-admin', 'jane_admin@symfony.com', [User::ROLE_ADMIN]],
+            ['Tom Doe', 'tom_admin', 'ltcc-admin', 'tom_admin@symfony.com', [User::ROLE_ADMIN]],
+            ['John Doe', 'john_user', 'ltcc', 'john_user@symfony.com', [User::ROLE_USER]],
         ];
     }
 }
