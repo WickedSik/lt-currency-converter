@@ -35,3 +35,32 @@ services:
             - default
         volumes:
             - .:/var/www/html
+
+    elasticsearch:
+        image: elasticsearch:7.17.18
+        container_name: lt-cc-es
+        networks:
+            - default
+        ports:
+            - '9200:9200'
+        environment:
+            - cluster.name=docker-cluster
+            - bootstrap.memory_lock=true
+            - discovery.type=single-node
+            - "ES_JAVA_OPTS=-Xms512m -Xmx512m" # 512mo HEAP
+        ulimits:
+            memlock:
+                soft: -1
+                hard: -1
+
+    kibana:
+        image: kibana:7.17.18
+        container_name: lt-cc-kb
+        environment:
+            ELASTICSEARCH_URL: http://lt-cc-es:9200
+        depends_on:
+            - elasticsearch
+        networks:
+            - default
+        ports:
+            - '5601:5601'
