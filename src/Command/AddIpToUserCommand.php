@@ -64,6 +64,7 @@ class AddIpToUserCommand extends Command
         $user->setTrustedIPs($existingIPs);
 
         $this->entityManager->persist($user);
+        $this->entityManager->flush();
 
         $io->success("{$ip} added to trusted IP addresses for User {$user->getUsername()}");
 

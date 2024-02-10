@@ -54,6 +54,8 @@ security:
                 # Secure the logout against CSRF
                 enable_csrf: true
 
+            user_checker: App\Security\TrustedIPValidator
+
             # needed because in tests we redefine the 'main' firewall to use
             # HTTP Basic instead of the login form, so this firewall has
             # multiple authenticators
