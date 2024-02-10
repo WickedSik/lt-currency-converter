@@ -1,7 +1,7 @@
 version: '3'
 services:
     db:
-        image: mariadb:latest
+        image: mariadb:11.2.2-jammy
         container_name: lt-cc-db
         restart: always
         environment:
