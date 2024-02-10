@@ -2,6 +2,41 @@
 
 {% block title %}Currency Conversion{% endblock %}
 
+{% block stylesheets %}
+<style>
+    .currency-header {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+    .card {
+        margin: 5px;
+    }
+</style>
+{% endblock %}
+
 {% block body %}
-    {# -- content -- #}
+    <div class="row">
+        <div class="col-12">
+            {{ form(form) }}
+        </div>
+    </div>
+
+    {% if form.vars.submitted %}
+        <div class="row no-gutters">
+            {% for c in conversions %}
+                <div class="col-3">
+                    <div class="card">
+                        <div class="card-body">
+                            <h2 class="currency-header">{{ c.value | format_number({ fraction_digit: 2 }) }}</h2>
+                            <p class="mb-0">
+                                <strong>{{ c.currency.toName }}</strong><br />
+                                <small class="text-muted">{{ c.currency.toCode }}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
 {% endblock %}

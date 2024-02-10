@@ -30,6 +30,19 @@ class CurrencyRateRepository extends ServiceEntityRepository
         parent::__construct($registry, CurrencyRate::class);
     }
 
+    public function findOriginCodes(): array
+    {
+        $query = $this->getEntityManager()->createQuery(
+            'SELECT DISTINCT cr.fromCode
+            FROM App\Entity\CurrencyRate cr'
+        );
+
+        return array_map(
+            function($cr) { return $cr['fromCode']; },
+            $query->getResult()
+        );
+    }
+
 //    /**
 //     * @return CurrencyRate[] Returns an array of CurrencyRate objects
 //     */
