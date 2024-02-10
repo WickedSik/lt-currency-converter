@@ -47,7 +47,7 @@ class ImportRatesCommand extends Command
     protected function configure(): void
     {
         $this
-            ->addArgument('code', InputArgument::OPTIONAL, 'The country code to pull')
+            ->addArgument('code', InputArgument::REQUIRED, 'The country code to pull')
         ;
     }
 
