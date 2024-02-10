@@ -35,8 +35,8 @@ class ImportRatesCommand extends Command
     private EntityRepository $repository;
 
     public function __construct(
-        private HttpClientInterface $client,
-        private EntityManagerInterface $entityManager
+        private readonly HttpClientInterface $client,
+        private readonly EntityManagerInterface $entityManager
     )
     {
         parent::__construct();
