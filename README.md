@@ -19,9 +19,15 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
 
+> Do not forget to add IP addresses to the trusted ip addresses:
+> 
+> `php bin/console app:add-ip-to-user [user] [ip]`
+
 You can now navigate to [localhost:8080](http://localhost:8080) to use the application
 
 ### Admin user
+
+> Since there is no admin interface, admin users have little extra use.
 
 ```text
 Username: tom_admin
