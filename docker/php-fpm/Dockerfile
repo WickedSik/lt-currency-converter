@@ -1,5 +1,5 @@
 FROM php:8.3.2-fpm
-WORKDIR "/app"
+WORKDIR "/var/www/html"
 
 # Update
 RUN apt-get update

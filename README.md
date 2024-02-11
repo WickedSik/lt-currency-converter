@@ -11,13 +11,19 @@
 4. Execute the following commands once the docker images are up;
 
 ```bash
-# Enter shell container
+# Enter shell for php container
 docker compose exec php-fpm bash
 # In the container
-cd /var/www/html
+composer install
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
+# Import initial rates
+php bin/console app:import-rates usd
+# If more rates need to be imported;
+php bin/console app:import-rates eur
 ```
+
+Only currencies that are imported this way can be converted.
 
 > Do not forget to add IP addresses to the trusted ip addresses:
 > 
