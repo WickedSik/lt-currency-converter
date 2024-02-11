@@ -169,6 +169,10 @@
                 <source>action.sign_in</source>
                 <target>Sign in</target>
             </trans-unit>
+            <trans-unit id="action.forgot_password">
+                <source>action.forgot_password</source>
+                <target>Forgot Password</target>
+            </trans-unit>
             <trans-unit id="action.browse_app">
                 <source>action.browse_app</source>
                 <target>Browse application</target>

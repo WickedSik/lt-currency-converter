@@ -43,3 +43,18 @@ Password: ltcc-admin
 Username: john_user
 Password: ltcc
 ```
+
+## Mailing
+
+The Mailhog container is included as well and configured to handle the emails send by Symfony. The webclient can be
+reached [here](http://localhost:18025)
+
+## Elasticsearch & Kibana
+
+Both Elasticsearch and Kibana are included in the docker. The Currency Rates will be injected into Elasticsearch
+whenever they are updated so the progression and trend can be extrapolated. Since there is no historical data
+there has not been any charts or history-diagrams added, but running the project for a longer time will allow for this
+to be done. 
+
+Elasticsearch can be reached at : http://localhost:9200  
+Kibana can be reached at : http://localhost:5601

@@ -36,6 +36,17 @@ services:
         volumes:
             - .:/var/www/html
 
+    mailer:
+        image: mailhog/mailhog:latest
+        container_name: lt-cc-mail
+        networks:
+            - default
+        ports:
+            - '11025:1025'
+            - '18025:8025'
+        logging:
+            driver: none
+
     elasticsearch:
         image: elasticsearch:7.17.18
         container_name: lt-cc-es
